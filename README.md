@@ -5,7 +5,7 @@
 ```
 /**
  * 位数补齐 1=>01
- * @param  {Number} num 
+ * @param  {String|Number} num 
  * @return {String|Number}
  */
 var digit = function(num) {
@@ -25,4 +25,5 @@ var date = function (timestamp) {
     var d = new Date(timestamp || new Date());
     return `${d.getFullYear()}-${digit(d.getMonth() + 1)}-${digit(d.getDate())} ${digit(d.getHours())}:${digit(d.getMinutes())}:${digit(d.getSeconds())}`;
 }  
+
 ```

@@ -6,7 +6,7 @@
 
 /**
  * 位数补齐 1=>01
- * @param  {Number} num 
+ * @param  {String|Number} num 
  * @return {String|Number}
  */
 var digit = function(num) {
