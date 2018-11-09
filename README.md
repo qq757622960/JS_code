@@ -1,5 +1,24 @@
 > 常用代码段
 
+* 搜索某个字符在字符串中出现的 下标
+```
+/**
+ * 搜索某个字符在字符串中出现的 下标, 如: xiafujianandmengminxue 中 i 的下标
+ * @param {String} str 要搜索的字符串
+ * @param {String} char 要搜索的字符
+ * @return {Array} 返回下标数组
+ */
+var findChar = function (str, char) {
+    var pos = str.indexOf(char),
+        arr = [];
+    while (pos > -1) {
+        arr.push(pos);
+        pos = str.indexOf(char, pos + 1)
+    }
+    return arr;
+}
+```
+
 * 位数补齐, 如 1=>01
 
 ```
