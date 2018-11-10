@@ -25,21 +25,6 @@ var htmlEscape = function (text) {
     });
 }
 
-var htmlEscape = function (text) {
-    return text.replace(/[<>"&]/g, function (match, pos, input) {
-        switch (match) {
-        case "<":
-            return "&lt;";
-        case ">":
-            return "&gt;";
-        case "\"":
-            return "&amp;";
-        case "&":
-            return "&quot;";
-        }
-    });
-}
-
 /**
  * 搜索某个字符在字符串中出现的 下标, 如: xiafujianandmengminxue 中 i 的下标
  * @param {String} str 要搜索的字符串
