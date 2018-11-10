@@ -5,6 +5,42 @@
  */
 
 /**
+ * 将 HTML 字符串转换成 转义字符, 如: 
+ * <p class="text">haha</p> => &lt;p class=&quot;text&quot;&gt;haha&lt;/p&gt;
+ * @param  {String} text 要转换的HTML标签
+ * @return {String} 转换后的字符串
+ */
+var htmlEscape = function (text) {
+    return text.replace(/[<>"&]/g, function (match, pos, input) {
+        switch (match) {
+            case "<":
+                return "&lt;";
+            case ">":
+                return "&gt;";
+            case "\"":
+                return "&amp;";
+            case "&":
+                return "&quot;";
+        }
+    });
+}
+
+var htmlEscape = function (text) {
+    return text.replace(/[<>"&]/g, function (match, pos, input) {
+        switch (match) {
+        case "<":
+            return "&lt;";
+        case ">":
+            return "&gt;";
+        case "\"":
+            return "&amp;";
+        case "&":
+            return "&quot;";
+        }
+    });
+}
+
+/**
  * 搜索某个字符在字符串中出现的 下标, 如: xiafujianandmengminxue 中 i 的下标
  * @param {String} str 要搜索的字符串
  * @param {String} char 要搜索的字符
