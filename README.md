@@ -1,5 +1,19 @@
 > 常用代码段
 
+* 生成一个随机数
+```
+/**
+ * 值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)
+ * @param  {Number} min 最小值
+ * @param  {Number} max 最大值
+ * @return {Number} 生成一个 min-max 之间的数值
+ */
+var random = function(min, max) {
+    var choices = max - min + 1;
+    return Math.floor(Math.random() * choices + min);
+}
+```
+
 * 将 HTML 字符串转换成 转义字符
 ```
 /**
