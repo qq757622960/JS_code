@@ -4,6 +4,43 @@
  * @Desc: 一些JS常用的代码段 
  */
 
+ /* Moudle Ajax
+ ----------------------------------------------------- */
+
+/**
+ * JSONP(参数式JSON)
+ * 
+ * 组成: 回调函数和数据, 如: callback({ "name": "xfj" })
+ * 回调函数是当响应到来时应该在页面中调用的函数, 回调函数的名字一般在请求中指定的。
+ * 
+ * 原理: JSONP 通过动态创建 script 标签, 由于 script 的 src 属性有能力不受限制地从其他域加载资源
+ * 所以, 在请求完成后, 就立即执行回调函数。
+ */
+
+// 原生方式
+var url = 'http://b2b2c.shopnctest.com/dema/mo_bile/index.php';
+var script = document.createElement('script');
+script.src = `${url}?act=goods&op=goods_list&keyword=%E7%BE%8E%E9%A3%9F&page=10&curpage=1&keyword=%E7%BE%8E%E9%A3%9F&_=1541912868853&callback=jsonp1`;
+document.body.insertBefore(script, document.body.firstChild);
+
+function jsonp1(response) {
+    console.log(response);
+}
+
+// jQuery 方式
+$.ajax({
+    type: "get",
+    url: "http://b2b2c.shopnctest.com/dema/mo_bile/index.php?act=goods&op=goods_list&keyword=%E7%BE%8E%E9%A3%9F&page=10&curpage=1&keyword=%E7%BE%8E%E9%A3%9F&_=1541912868853&callback=jsonp1",
+    data: "",
+    dataType: "jsonp",  // jsonp
+    success: function (response) {
+        console.log(response);
+    }
+});
+
+/* Moudle 引用类型
+----------------------------------------------------- */
+
 /**
  * 值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)
  * @param  {Number} min 最小值
