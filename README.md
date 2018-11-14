@@ -1,5 +1,50 @@
 > 常用代码段
 
+> Event
+
+* 自定义事件 
+(参考1)[https://www.jb51.net/article/78334.htm]
+(参考2)[https://www.cnblogs.com/jcscript/p/5839032.html]
+```
+// 自定义事件
+function CustomEvent() {
+    this.handlers = {};
+}
+
+CustomEvent.prototype = {
+    constructor: CustomEvent,
+    on: function (type, handler) {
+        if (!this.handlers[type]) {
+            this.handlers[type] = [];
+        }
+        this.handlers[type].push(handler);
+    },
+    off: function (type, handler) {
+        if (Array.isArray(this.handlers[event.type])) {
+            var handlers = this.handlers[type];
+            for (var i = 0; i < handlers.length; i++) {
+                if (handlers[i] == handler) {
+                    break;
+                }
+            }
+
+            handlers.splice(i, 1);
+        }
+    },
+    fire: function (event) {
+        if (!event.target) {
+            event.target = this;
+        }
+        if (Array.isArray(this.handlers[event.type])) {
+            var handlers = this.handlers[event.type];
+            for (var i = 0; i < handlers.length; i++) {
+                handlers[i](event);
+            }
+        }
+    }
+};
+```
+
 > Ajax
 
 * JSONP(参数式 JSON)
