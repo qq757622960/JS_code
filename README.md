@@ -82,6 +82,24 @@ $.ajax({
 ```
 
 > 引用类型
+* 26个字母排序
+/**
+ * "ADBCKJIHGEF" => [A,B,C,D,E,F,G,H,I,J,K]
+ * @param  {String} wstr 
+ * @return {Set} 返回一个排序后的 set
+ */
+var wordSort = function (wstr) {
+    return wstr.split('').sort((a, b) => {
+        return a.charCodeAt(0) - b.charCodeAt(0);
+    });
+
+    // 去重复
+    // return new Set(
+    //     wstr.split('').sort((a, b) => {
+    //         return a.charCodeAt(0) - b.charCodeAt(0);
+    //     })
+    // )
+}
 
 * 生成一个随机数
 ```

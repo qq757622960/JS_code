@@ -83,6 +83,24 @@ $.ajax({
 ----------------------------------------------------- */
 
 /**
+ * "ADBCKJIHGEF" => [A,B,C,D,E,F,G,H,I,J,K]
+ * @param  {String} wstr 
+ * @return {Set} 返回一个排序后的 set
+ */
+var wordSort = function (wstr) {
+    return wstr.split('').sort((a, b) => {
+        return a.charCodeAt(0) - b.charCodeAt(0);
+    });
+
+    // 去重复
+    // return new Set(
+    //     wstr.split('').sort((a, b) => {
+    //         return a.charCodeAt(0) - b.charCodeAt(0);
+    //     })
+    // )
+}
+
+/**
  * 值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)
  * @param  {Number} min 最小值
  * @param  {Number} max 最大值
