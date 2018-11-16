@@ -83,6 +83,7 @@ $.ajax({
 
 > 引用类型
 * 26个字母排序
+```
 /**
  * "ADBCKJIHGEF" => [A,B,C,D,E,F,G,H,I,J,K]
  * @param  {String} wstr 
@@ -100,6 +101,7 @@ var wordSort = function (wstr) {
     //     })
     // )
 }
+```
 
 * 生成一个随机数
 ```
