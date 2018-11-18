@@ -220,3 +220,14 @@ var date = function (timestamp) {
 }  
 
 ```
+
+> 心得
+
+* 写伪代码, 这样不容易给绕进逻辑的坑里, 比如,我写一个 DOM 操作
+
+```
+// 这种, 当页面特别复杂的时候, 为了去获取 dom, 容易忘记当初要干什么, 这时需要把整体要做的事列出来, 具体细节在慢慢填
+dom.addEventListener('touchstart', handler, false);
+
+```
+
