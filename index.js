@@ -4,6 +4,36 @@
  * @Desc: 一些JS常用的代码段 
  */
 
+/* Moudle DOM
+----------------------------------------------------- */
+/**
+ * getAttribute 获取属性值
+ * @param  {Dom} el DOM节点
+ * @param  {String} name 属性名称
+ * @param  {String} val  属性值
+ * @return {String} 返回属性的值
+ */
+var getData = function (el, name, val) {
+    const prefix = 'data-';
+    name = prefix + name;
+    if (val) {
+        return el.setAttribute(name, val)
+    } else {
+        return el.getAttribute(name);
+    }
+}
+
+/**
+ * dataset 获取属性值
+ * @param  {Dom} el DOM节点
+ * @param  {String} name 属性名称
+ * @param  {String} val  属性值
+ * @return {String} 返回属性的值
+ */
+var getData = function (el, name, val) {
+    return val ? el.dataset[name] = val : el.dataset[name]
+}
+
 /* Moudle Event
 ----------------------------------------------------- */
 
