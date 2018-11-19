@@ -109,6 +109,49 @@ $.ajax({
     }
 });
 
+// jQuery 例子, 使用 JSONP 访问 QQ 音乐数据
+function jsonp(options) {
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            type: options.type || 'get',
+            url: options.url,
+            data: options.data,
+            dataType: options.dataType || 'jsonp',
+            jsonp: options.jsonp || 'callback',
+            success: function (response) {
+                resolve(response)
+            },
+            error: function (err, text) {
+                reject(err)
+            }
+        });
+    });
+}
+
+// 例子
+const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg';
+const data = {
+    g_tk: 1928093487,
+    inCharset: 'utf-8',
+    outCharset: 'utf-8',
+    notice: 0,
+    format: 'jsonp',
+    platform: 'h5',
+    uin: 0,
+    needNewCode: 1
+};
+
+jsonp({
+    type: 'get',
+    url: url,
+    data: data,
+    dataType: 'jsonp',
+    jsonp: 'jsonpCallback'
+}).then(function (res) {
+    console.log(res);
+})
+
+
 /* Moudle 引用类型
 ----------------------------------------------------- */
 
