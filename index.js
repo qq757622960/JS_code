@@ -17,6 +17,21 @@ function getQueryString(name) {
     return (str != null) ? r[2] : ''
 }
 
+/**
+ * 根据对象拼接查询字符串
+ * var obj = {name: 'yishi', age: 26}
+ * name=yishi&age=26
+ * @param  {Object} data 
+ * @return {String} 查询字符串
+ */
+function param(data) {
+    let url = ''
+    for (let k in data) {
+        url += `&${k}=${data[k]}`
+    }
+    return url ? url.substring(1) : ''
+}
+
 /* Moudle DOM
 ----------------------------------------------------- */
 /**
