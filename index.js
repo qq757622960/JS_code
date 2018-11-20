@@ -4,6 +4,19 @@
  * @Desc: 一些JS常用的代码段 
  */
 
+/* Moudle RegExp
+----------------------------------------------------- */
+/**
+ * 根据浏览器查询参数
+ * @param  {String} name 
+ * @return {String} value值
+ */
+function getQueryString(name) {
+    var re = new RegExp(`(^|&)${name}=([^&]*)(&|$)`);
+    var r = window.location.search.substr(1).match(re);
+    return (str != null) ? r[2] : ''
+}
+
 /* Moudle DOM
 ----------------------------------------------------- */
 /**

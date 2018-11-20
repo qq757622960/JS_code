@@ -3,6 +3,19 @@
 > 正则表达式
 * queryString /(^|&)name=([^&]*)(&|$)/
 
+```
+/**
+ * 根据浏览器查询参数
+ * @param  {String} name 
+ * @return {String} value值
+ */
+function getQueryString(name) {
+    var re = new RegExp(`(^|&)${name}=([^&]*)(&|$)`);
+    var r = window.location.search.substr(1).match(re);
+    return (str != null) ? r[2] : ''
+}
+```
+
 > DOM
 
 * 获取属性值
